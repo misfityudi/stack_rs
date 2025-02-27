@@ -11,6 +11,10 @@ impl<T: Clone> Stack<T> {
         self.items.push(value);
     }
 
+    pub fn push_items(&mut self, slice: Vec<T>) {
+        self.items.extend(slice);
+    }
+
     pub fn pop(&mut self) -> Option<T> {
         self.items.pop()
     }
@@ -44,6 +48,19 @@ mod tests {
         stack.push(value);
         assert_eq!(stack.items.len(), 1);
         assert_eq!(stack.items[0], i8::MAX);
+    }
+
+    #[test]
+    fn push_items() {
+        let mut stack = Stack::<i8>::new();
+        let value = i8::MAX;
+
+        stack.push(value);
+        let items = vec![1, 2, 3];
+        stack.push_items(items);
+        assert_eq!(stack.items.len(), 4);
+        assert_eq!(stack.items[0], i8::MAX);
+        assert_eq!(stack.items[3], 3);
     }
 
     #[test]
