@@ -10,6 +10,10 @@ impl<T> Stack<T> {
     pub fn push(&mut self, value: T) {
         self.items.push(value);
     }
+
+    pub fn pop(&mut self) -> Option<T> {
+        self.items.pop()
+    }
 }
 
 #[cfg(test)]
@@ -32,5 +36,15 @@ mod tests {
         stack.push(value);
         assert_eq!(stack.items.len(), 1);
         assert_eq!(stack.items[0], i8::MAX);
+    }
+
+    #[test]
+    fn pop() {
+        let mut stack = Stack::<i8>::new();
+        assert_eq!(stack.pop(), None);
+
+        let value = i8::MAX;
+        stack.push(value);
+        assert_eq!(stack.pop(), Some(value));
     }
 }
