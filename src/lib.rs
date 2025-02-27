@@ -30,6 +30,10 @@ impl<T: Clone> Stack<T> {
     pub fn size(&self) -> usize {
         self.items.len()
     }
+
+    pub fn clear(&mut self) {
+        self.items.clear();
+    }
 }
 
 #[cfg(test)]
@@ -104,5 +108,18 @@ mod tests {
         let items = vec![1, 2, 3];
         stack.push_items(items);
         assert_eq!(stack.size(), 4);
+    }
+
+    #[test]
+    fn clear() {
+        let mut stack = Stack::<i8>::new();
+        let value = i8::MAX;
+
+        stack.push(value);
+        let items = vec![1, 2, 3];
+        stack.push_items(items);
+
+        stack.clear();
+        assert!(stack.is_empty());
     }
 }
