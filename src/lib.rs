@@ -2,7 +2,7 @@ pub struct Stack<T> {
     pub items: Vec<T>,
 }
 
-impl<T:Clone> Stack<T> {
+impl<T: Clone> Stack<T> {
     pub fn new() -> Self {
         Self { items: Vec::new() }
     }
@@ -17,6 +17,10 @@ impl<T:Clone> Stack<T> {
 
     pub fn peek(&self) -> Option<T> {
         self.items.last().cloned()
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.items.is_empty()
     }
 }
 
@@ -62,5 +66,11 @@ mod tests {
         stack.push(value);
         assert_eq!(stack.peek(), Some(value));
         assert!(!stack.items.is_empty());
+    }
+
+    #[test]
+    fn is_empty() {
+        let stack = Stack::<i8>::new();
+        assert!(stack.is_empty());
     }
 }
