@@ -26,6 +26,10 @@ impl<T: Clone> Stack<T> {
     pub fn is_empty(&self) -> bool {
         self.items.is_empty()
     }
+
+    pub fn size(&self) -> usize {
+        self.items.len()
+    }
 }
 
 #[cfg(test)]
@@ -89,5 +93,16 @@ mod tests {
     fn is_empty() {
         let stack = Stack::<i8>::new();
         assert!(stack.is_empty());
+    }
+
+    #[test]
+    fn size() {
+        let mut stack = Stack::<i8>::new();
+        let value = i8::MAX;
+
+        stack.push(value);
+        let items = vec![1, 2, 3];
+        stack.push_items(items);
+        assert_eq!(stack.size(), 4);
     }
 }
