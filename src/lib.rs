@@ -2,7 +2,7 @@ pub struct Stack<T> {
     pub items: Vec<T>,
 }
 
-impl<T> Stack<T> {
+impl<T:Clone> Stack<T> {
     pub fn new() -> Self {
         Self { items: Vec::new() }
     }
