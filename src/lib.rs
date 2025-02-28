@@ -38,8 +38,6 @@ impl<T: Clone> Stack<T> {
 
 #[cfg(test)]
 mod tests {
-    use std::i8;
-
     use super::*;
 
     #[test]
