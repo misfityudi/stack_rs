@@ -7,8 +7,8 @@ impl<T: Clone> Stack<T> {
         Self { items: Vec::new() }
     }
 
-    pub fn push(&mut self, value: T) {
-        self.items.push(value);
+    pub fn push(&mut self, item: T) {
+        self.items.push(item);
     }
 
     pub fn push_items(&mut self, slice: Vec<T>) {
