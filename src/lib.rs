@@ -50,7 +50,7 @@ mod tests {
 
     #[test]
     fn push() {
-        let mut stack = Stack::<i8>::new();
+        let mut stack = Stack::new();
         let value = i8::MAX;
 
         stack.push(value);
@@ -60,7 +60,7 @@ mod tests {
 
     #[test]
     fn push_items() {
-        let mut stack = Stack::<i8>::new();
+        let mut stack = Stack::new();
         let value = i8::MAX;
 
         stack.push(value);
@@ -73,7 +73,7 @@ mod tests {
 
     #[test]
     fn pop() {
-        let mut stack = Stack::<i8>::new();
+        let mut stack = Stack::new();
         assert_eq!(stack.pop(), None);
 
         let value = i8::MAX;
@@ -84,7 +84,7 @@ mod tests {
 
     #[test]
     fn peek() {
-        let mut stack = Stack::<i8>::new();
+        let mut stack = Stack::new();
         assert_eq!(stack.peek(), None);
 
         let value = i8::MAX;
@@ -101,7 +101,7 @@ mod tests {
 
     #[test]
     fn size() {
-        let mut stack = Stack::<i8>::new();
+        let mut stack = Stack::new();
         let value = i8::MAX;
 
         stack.push(value);
@@ -112,7 +112,7 @@ mod tests {
 
     #[test]
     fn clear() {
-        let mut stack = Stack::<i8>::new();
+        let mut stack = Stack::new();
         let value = i8::MAX;
 
         stack.push(value);
