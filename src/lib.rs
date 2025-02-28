@@ -11,8 +11,8 @@ impl<T: Clone> Stack<T> {
         self.items.push(item);
     }
 
-    pub fn push_items(&mut self, slice: Vec<T>) {
-        self.items.extend(slice);
+    pub fn push_items(&mut self, items: Vec<T>) {
+        self.items.extend(items);
     }
 
     pub fn pop(&mut self) -> Option<T> {
