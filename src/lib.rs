@@ -11,7 +11,7 @@ impl<T: Clone> Stack<T> {
         self.items.push(item);
     }
 
-    pub fn push_items(&mut self, items: Vec<T>) {
+    pub fn bulk_push(&mut self, items: Vec<T>) {
         self.items.extend(items);
     }
 
@@ -63,7 +63,7 @@ mod tests {
 
         stack.push(value);
         let items = vec![1, 2, 3];
-        stack.push_items(items);
+        stack.bulk_push(items);
         assert_eq!(stack.items.len(), 4);
         assert_eq!(stack.items[0], i8::MAX);
         assert_eq!(stack.items[3], 3);
@@ -104,7 +104,7 @@ mod tests {
 
         stack.push(value);
         let items = vec![1, 2, 3];
-        stack.push_items(items);
+        stack.bulk_push(items);
         assert_eq!(stack.size(), 4);
     }
 
@@ -115,7 +115,7 @@ mod tests {
 
         stack.push(value);
         let items = vec![1, 2, 3];
-        stack.push_items(items);
+        stack.bulk_push(items);
 
         stack.clear();
         assert!(stack.is_empty());
